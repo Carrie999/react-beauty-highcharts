@@ -1,11 +1,16 @@
 {
   "name": "react-beauty-highcharts",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "files": [
     "dist"
   ],
   "description": "beauty Highcharts",
   "main": "dist/bundle.js",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Carrie999/react-beauty-highcharts"
+  },
   "directories": {
     "example": "examples"
   },
@@ -14,16 +19,16 @@
     "build": "webpack"
   },
   "keywords": [],
-  "author": "",
+  "author": "carrie",
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
-    "react": "^16.7.0",
-    "react-proptypes": "^1.0.0"
+    "react": "^16.7.0"
   },
   "devDependencies": {
+    "react-proptypes": "^1.0.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.4",
     "babel-preset-env": "^1.7.0",

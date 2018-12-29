@@ -1,5 +1,9 @@
 module.exports =  {
-    doubleLine: function(config){
+    doubleLine: function(arr){
+        if(arr && !Array.isArray(arr)){
+            console.error('the first params type must be Array')
+            return
+        }
         return { 
             credits:{
                 enabled: false // 禁用版权信息
@@ -94,7 +98,45 @@ module.exports =  {
                     }
                 }
             },
-            series: [{
+            series: (arr && arr[0] === 'pink')?[{
+                // data: [  110, 235, 369, 640,
+                //        1005, 1436, 2063, 3057, 4618, 6444, 9822, 15468, 20434, 24126,
+                //        27387, 29459, 31056, 31982, 32040, 31233, 29224, 27342, 26662,
+                //        26956, 27912, 28999, 28965, 27826, 25579, 25722, 24826, 24605,
+                //        24304, 23464, 23708, 24099, 24357, 24237, 24401, 24344, 23586,
+                //        22380, 21004, 17287, 14747, 13076, 12555, 12144, 11009, 10950,
+                //        10871, 10824, 10577, 10527, 10475, 10421, 10358, 10295, 10104],
+                lineColor: '#e88eb3',
+                color:{
+                    linearGradient: { x1: 0, x2: 0, y1: 0, y2: 1 },
+                    stops: [
+                        [0, 'rgba(231,142,179,0.8)'],
+                        [1, 'rgba(135,56,89,0.5)']
+                    ]
+                },
+                fillOpacity: 0.5,
+                name: '进',
+                marker: {
+                    enabled: false
+                },
+                // threshold: null // 是否显示负数
+            }, {
+                // data: ,
+                lineColor: '#b946ff',
+                color:{
+                    linearGradient: { x1: 0, x2: 0, y1: 0, y2: 1 },
+                    stops: [
+                        [0,  'rgba(152,60,210,0.8)'],
+                        [1,   'rgba(65,25,90,0.35)']
+                    ]
+                },
+                fillOpacity: 0.5,
+                name: '出',
+                marker: {
+                    enabled: false
+                },
+                threshold: null
+            }]:[{
                 // data: [  110, 235, 369, 640,
                 //        1005, 1436, 2063, 3057, 4618, 6444, 9822, 15468, 20434, 24126,
                 //        27387, 29459, 31056, 31982, 32040, 31233, 29224, 27342, 26662,
@@ -229,9 +271,20 @@ module.exports =  {
                     color: '#fff'
                 }   
             },
-            series: []
+            series: [{
+                color:'#3453d4',
+                name: '>120s',
+                data: [1,2,3,4,5,6,7]
+            }, {
+                color:'#ff2674',
+                name: '60~120s',
+                data: [3,4,3,1,3,2,2]
+            }, {
+                color:'#66c3e3',// color:'#66c3e3',
+                name: '<60s',
+                data:[7,4,3,4,2,6,8]
+            }]
                 
         }
-
     }
 };
